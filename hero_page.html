@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Focus Flow - Calm Your Mind, Master Your Attention</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Comfortaa:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8FB996", // Soft Sage Green
+                        "primary-dark": "#5D8262", // Darker sage for text/contrast
+                        "primary-light": "#E0EADD", // Very pale green
+                        "secondary": "#EFA7A7", // Dusty Pink
+                        "secondary-light": "#FDECEC", // Very pale pink
+                        "secondary-hover": "#D88080", // Richer pink
+                        "accent": "#FFF8E1", // Creamy Yellow
+                        "background-light": "#FFFCF7", // Warm Off-White/Cream
+                        "background-paper": "#FFFFFF",
+                        "text-main": "#5D4E46", // Warm Coffee Brown
+                        "text-muted": "#8B7366", // Slightly darker latte brown for better readability
+                        "cloud-fill": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        "sans": ["Nunito", "sans-serif"],
+                        "display": ["Comfortaa", "cursive"]
+                    },
+                    borderRadius: {"DEFAULT": "0.75rem", "lg": "1.25rem", "xl": "2rem", "2xl": "3rem", "3xl": "4rem", "full": "9999px"},
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(93, 130, 98, 0.3)',
+                        'soft-hover': '0 20px 50px -10px rgba(93, 130, 98, 0.4)',
+                        'card': '0 8px 24px -6px rgba(93, 78, 70, 0.1)',
+                        'button': '0 4px 0px rgba(216, 128, 128, 1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFCF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #EFA7A7;
+            border-radius: 6px;
+            border: 3px solid #FFFCF7;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D88080;
+        }
+        .cloud-border-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 20;
+        }
+        .cloud-border-top {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            z-index: 20;
+        }
+        .cloud-border-bottom svg, .cloud-border-top svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+        @media (min-width: 768px) {
+            .cloud-border-bottom svg, .cloud-border-top svg {
+                height: 160px;
+            }
+        }
+        .custom-blob-shape {
+             border-radius: 62% 38% 66% 34% / 45% 56% 44% 55%;
+        }
+    </style>
+</head>
+<body class="bg-background-light font-sans text-text-main antialiased overflow-x-hidden selection:bg-secondary-light selection:text-secondary-hover">
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="sticky top-0 z-50 w-full h-fit transition-all duration-300" style="background-color: #8FB996;">
+    
+    <div class="pt-4 px-[2%] pb-4">
+        
+        <header class="w-full bg-background-light/95 backdrop-blur-sm px-3 py-3 lg:px-16 transition-all duration-300 rounded-3xl mx-auto shadow-sm border border-primary/10">
+            <div class="flex items-center justify-between mx-auto max-w-[1280px]">
+                <div class="flex items-center gap-3 text-text-main">
+                    <div class="bg-primary p-2 rounded-full text-white shadow-sm">
+                        <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1, 'wght' 600">cloud</span>
+                    </div>
+                    <h2 class="text-2xl font-display font-bold text-text-main tracking-wide">Focus Flow</h2>
+                </div>
+                
+                
+
+                <div class="flex items-center gap-4">
+                    <button class="hidden sm:flex cursor-pointer items-center justify-center rounded-full h-11 px-6 text-sm font-bold hover:bg-secondary-light text-text-main transition-colors">
+                        Log In
+                    </button>
+                    <button class="cursor-pointer items-center justify-center rounded-full h-11 px-7 bg-secondary hover:bg-secondary-hover text-white text-sm font-bold shadow-button hover:translate-y-0.5 active:translate-y-1 active:shadow-none transition-all duration-200">
+                        Get Started
+                    </button>
+                    <button class="md:hidden p-2 text-text-main bg-white rounded-full shadow-sm">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+<main class="flex-1 flex flex-col items-center w-full">
+<section class="w-full relative bg-primary pt-16 pb-40 lg:pb-56 overflow-hidden">
+<div class="px-4 lg:px-40 flex justify-center relative z-10">
+<div class="max-w-[1280px] w-full flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+<div class="flex flex-col gap-8 lg:w-1/2 text-center lg:text-left">
+<div class="flex flex-col gap-6">
+<span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white text-primary-dark border-2 border-primary-light text-xs font-extrabold tracking-widest uppercase w-fit mx-auto lg:mx-0 shadow-sm">
+<span class="material-symbols-outlined text-base">spa</span>
+                                Find <span style="color: #D88080;">your</span> happy place
+                            </span>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.15] text-white drop-shadow-sm">
+                                Calm your mind. <br/><span class="text-accent italic font-light relative">Focus better, Together<svg class="absolute -bottom-2 left-0 w-full h-3 text-secondary" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path></svg></span>
+</h1>
+<p class="text-white/90 text-lg sm:text-xl font-semibold leading-relaxed max-w-xl mx-auto lg:mx-0">
+                               Sync your focus with a virtual partner and let AI handle the planning. Tackle your to-do list together, one micro-step at a time.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+
+</div>
+<div class="flex items-center gap-6 justify-center lg:justify-start text-sm text-white/90 pt-4 font-bold">
+<div class="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+
+</div>
+<div class="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative group px-8 lg:px-0">
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-accent/20 rounded-full blur-3xl mix-blend-overlay animate-pulse"></div>
+<div class="absolute -bottom-8 -left-8 w-64 h-64 bg-secondary/30 rounded-full blur-3xl mix-blend-overlay"></div>
+<div class="relative w-full aspect-[4/3] rounded-[3rem] shadow-xl hover:shadow-2xl overflow-hidden border-[12px] border-white transform rotate-2 hover:rotate-0 transition-all duration-700 ease-out z-10">
+<div class="absolute inset-0 bg-primary mix-blend-overlay opacity-20 pointer-events-none z-20"></div>
+<div class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="Calm workspace with plants and soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1CSZ4nGg6BQ34dXqWKPYhkxcMhCqVS7n1Gcc-seXJaMINtKNEn_81-LbsH3jPgpNQV6X0nd3732lYz2_vOibB6TeHyjz5Uoitw7Yq6Eqrx_phgUkFYIhvTtXtrPLsjt2BwgSiYqj9rsbLRYa4qfSezXVygPK-SKWjiq14kVGcYDbpwVSig5WQpZTdkwWWEQPTX1FdiZ-nJSaoggJ5kk-LuJArq9LRqy3nilGKNZTRSMUB7GFiTix92ZD3keTmpmnkyhZgHbn3R4s');"></div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="cloud-border-bottom text-background-light">
+<svg preserveAspectRatio="none" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,192C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="currentColor" fill-opacity="1" style="display:none;"></path>
+<path d="M0,160L40,176C80,192,160,224,240,218.7C320,213,400,171,480,170.7C560,171,640,213,720,229.3C800,245,880,235,960,218.7C1040,203,1120,181,1200,186.7C1280,192,1360,224,1400,240L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z" fill="currentColor"></path>
+<path d="M0,192L48,186.7C96,181,192,171,288,181.3C384,192,480,224,576,229.3C672,235,768,213,864,208C960,203,1056,213,1152,224C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="currentColor" fill-opacity="0.4" style="transform: translateY(10px);"></path>
+</svg>
+</div>
+</section>
+<section class="w-full px-4 lg:px-40 py-24 bg-background-light relative">
+<div class="max-w-[1280px] w-full mx-auto relative z-10">
+<div class="flex flex-col gap-4 mb-20 text-center items-center">
+<span class="bg-secondary-light text-secondary px-4 py-1 rounded-full font-bold tracking-widest text-xs uppercase">Gentle Tools</span>
+<h2 class="text-3xl md:text-5xl font-display font-bold leading-tight text-text-main">
+                        Designed for <span class="text-secondary decoration-wavy underline decoration-2 underline-offset-4">Tranquility</span>
+</h2>
+<p class="text-text-muted text-lg max-w-2xl font-semibold mt-2">
+                        Soft tools that guide you into deep focus like a gentle breeze, without the stress of rigid tracking.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary-light rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+<div class="size-20 rounded-full bg-primary-light flex items-center justify-center text-primary-dark shadow-inner z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl">do_not_disturb_on</span>
+</div>
+<div class="flex flex-col gap-3 z-10">
+<h3 class="text-2xl font-display font-bold text-text-main">Mindful Blocking</h3>
+<p class="text-text-muted text-base leading-relaxed font-medium">
+                                Gently silence digital noise. Create serene spaces by pausing notifications and blocking distracting sites.
+                            </p>
+</div>
+</div>
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-secondary-light p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-secondary/20 hover:border-secondary">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+<div class="size-20 rounded-full bg-white flex items-center justify-center text-secondary shadow-sm z-10 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl">hourglass_bottom</span>
+</div>
+<div class="flex flex-col gap-3 z-10">
+<h3 class="text-2xl font-display font-bold text-text-main">Rhythmic Focus</h3>
+<p class="text-text-muted text-base leading-relaxed font-medium">
+                                Work in natural cycles. Our soft timers encourage breaks to refresh your mind and sustain energy.
+                            </p>
+</div>
+</div>
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary-light rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+<div class="size-20 rounded-full bg-primary-light flex items-center justify-center text-primary-dark shadow-inner z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl">query_stats</span>
+</div>
+<div class="flex flex-col gap-3 z-10">
+<h3 class="text-2xl font-display font-bold text-text-main">Insightful Clarity</h3>
+<p class="text-text-muted text-base leading-relaxed font-medium">
+                                Understand your natural flow with calm, non-judgmental insights into your daily focus patterns.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="cloud-border-bottom text-secondary-light">
+<svg preserveAspectRatio="none" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,160L40,176C80,192,160,224,240,218.7C320,213,400,171,480,170.7C560,171,640,213,720,229.3C800,245,880,235,960,218.7C1040,203,1120,181,1200,186.7C1280,192,1360,224,1400,240L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z" fill="currentColor"></path>
+</svg>
+</div>
+</section>
+<section class="w-full relative bg-secondary-light pt-32 pb-48">
+<div class="cloud-border-top text-background-light">
+<svg preserveAspectRatio="none" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,160L40,176C80,192,160,224,240,218.7C320,213,400,171,480,170.7C560,171,640,213,720,229.3C800,245,880,235,960,218.7C1040,203,1120,181,1200,186.7C1280,192,1360,224,1400,240L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="w-full px-4 lg:px-40 flex justify-center mb-16 relative z-10">
+<div class="max-w-[960px] w-full text-center">
+<span class="text-secondary font-extrabold tracking-widest text-xs uppercase mb-3 block">Community</span>
+<h2 class="text-3xl md:text-4xl font-display font-bold leading-tight text-text-main">
+                        Join thousands floating in their flow
+                    </h2>
+</div>
+</div>
+<div class="w-full px-4 lg:px-40 flex justify-center relative z-10">
+<div class="max-w-[1280px] w-full">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative">
+<div class="absolute -top-4 -right-4 text-8xl text-primary/10 font-serif leading-none">”</div>
+<div class="flex items-center gap-4 z-10">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-16 border-4 border-primary-light" data-alt="Portrait of Sarah J smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCERVYkg0s2tmhWtqpLTmJ_9OLRu8AfRrJvWhinuyNlKKVLYuMhbXjh-TrjPdijbxyXMi9_q7_UcYw3jMOhGH48CQVwVS7geUMLBKaFRvick8croV6mV03k6MBbMGWhYMDQfYue8er_I2s7tSs4QKbjhhlqOlVpVK3ZFtgBA4cg-yahifAv8I2JgQYeaewbhEYh_TdiSKTeRtZgYKY1ADb-wiaqerV700LXBr41Fhy5yklaomKaZZ1eKOpez-3q6e9CELLNNqlV9Mw");'>
+</div>
+<div class="flex-1">
+<p class="text-text-main text-lg font-bold">Sarah J.</p>
+<p class="text-primary font-bold text-xs uppercase tracking-wide">Product Designer</p>
+</div>
+</div>
+<div class="flex gap-1 text-[#F4C95D]">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-text-main text-sm leading-relaxed font-semibold italic z-10">
+                                "Focus Flow completely changed how I manage my workday. It feels less like a tool and more like a sanctuary for my thoughts."
+                            </p>
+</div>
+<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative mt-0 md:mt-8 lg:mt-0">
+<div class="absolute -top-4 -right-4 text-8xl text-secondary/10 font-serif leading-none">”</div>
+<div class="flex items-center gap-4 z-10">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-16 border-4 border-secondary-light" data-alt="Portrait of Mark T in a suit" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTxbjRI0CquxE9hL2ViyTi9gI-Yk9sTz4v0w22zb0yh-mfTCiC2RGwT7EQD7krhHEd0H8UxvXqYukx_mTBqMkgtXuK4ft2CqF9poCPbF0Co1n7i-MEVlEmlfNROS6PRXNwLF2XLQE_Ljvk7I9CjzinABxexOjmhI5PnoFToWqjpdeRQnnzt-J99kmiN_kGX_pHeXSHkpdxCKIbREhuSamiCMVUQsGfwSjRNrJVym7GAe6arR9JCpCXj_NHvuNfJXOuz2BbHHT9DB8");'>
+</div>
+<div class="flex-1">
+<p class="text-text-main text-lg font-bold">Mark T.</p>
+<p class="text-secondary font-bold text-xs uppercase tracking-wide">Software Engineer</p>
+</div>
+</div>
+<div class="flex gap-1 text-[#F4C95D]">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-text-main text-sm leading-relaxed font-semibold italic z-10">
+                                "The best app for deep work. Highly recommended for anyone struggling with digital noise. The interface itself is incredibly calming."
+                            </p>
+</div>
+<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative">
+<div class="absolute -top-4 -right-4 text-8xl text-primary/10 font-serif leading-none">”</div>
+<div class="flex items-center gap-4 z-10">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-16 border-4 border-primary-light" data-alt="Portrait of Elena R smiling outdoors" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD38DOFgaOtBvG8PZaZHhtlWeYhWdXx0RSAellw0JQ9oqEsRd5EUJgCiPUD_7BZREGM5ubYrVpcM6tOi-djQ0hdvVuWB5yzu57g0Jz5Y4ipxIV0OoqWTcoWOx6Yg6enWB1WcvWPhCUxuct9xKPj0ehnHye-etS6pwDrRB1PIJD5a-29_rh_46bxUju2d1euoA6wt_xXfPk4FyigkGsFrMUEYsFkDlMpZJ1Hff4P8whwuFslzXWeHk4Rt_2lga5GYbkl846-iiVyOkw");'>
+</div>
+<div class="flex-1">
+<p class="text-text-main text-lg font-bold">Elena R.</p>
+<p class="text-primary font-bold text-xs uppercase tracking-wide">Content Writer</p>
+</div>
+</div>
+<div class="flex gap-1 text-[#F4C95D]">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-xl text-gray-200" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+<p class="text-text-main text-sm leading-relaxed font-semibold italic z-10">
+                                "Great interface and very effective tools. I love how simple it is to clear my screen and mind to just start writing."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="cloud-border-bottom text-white">
+<svg preserveAspectRatio="none" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,192C672,192,768,224,864,240C960,256,1056,256,1152,240C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="currentColor"></path>
+<path d="M0,160L40,176C80,192,160,224,240,218.7C320,213,400,171,480,170.7C560,171,640,213,720,229.3C800,245,880,235,960,218.7C1040,203,1120,181,1200,186.7C1280,192,1360,224,1400,240L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z" fill="currentColor" fill-opacity="0.5"></path>
+</svg>
+</div>
+</section>
+</main>
+<footer class="w-full bg-white px-4 lg:px-40 py-20 relative border-t border-primary/5">
+<div class="max-w-[1280px] w-full mx-auto flex flex-col gap-16">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2 text-text-main">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">cloud</span>
+<h2 class="text-xl font-display font-bold">Focus Flow</h2>
+</div>
+<p class="text-text-muted text-sm font-semibold leading-relaxed">
+                        Empowering you to reclaim your attention and find a soft peace in your daily work.
+                    </p>
+<div class="flex gap-5 text-secondary">
+<a class="hover:text-primary transition-colors hover:-translate-y-1 transform duration-300" href="#"><span class="material-symbols-outlined text-2xl">flutter_dash</span></a>
+<a class="hover:text-primary transition-colors hover:-translate-y-1 transform duration-300" href="#"><span class="material-symbols-outlined text-2xl">photo_camera</span></a>
+<a class="hover:text-primary transition-colors hover:-translate-y-1 transform duration-300" href="#"><span class="material-symbols-outlined text-2xl">public</span></a>
+</div>
+</div>
+<div class="flex flex-col gap-5">
+<h3 class="text-primary-dark font-extrabold text-xs uppercase tracking-widest">Product</h3>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Features</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Pricing</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Download</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Integrations</a>
+</div>
+<div class="flex flex-col gap-5">
+<h3 class="text-primary-dark font-extrabold text-xs uppercase tracking-widest">Wellness</h3>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Blog</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Mindfulness Guide</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Community</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Case Studies</a>
+</div>
+<div class="flex flex-col gap-5">
+<h3 class="text-primary-dark font-extrabold text-xs uppercase tracking-widest">Company</h3>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Careers</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Legal</a>
+<a class="text-text-muted text-sm font-bold hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-10 border-t border-dashed border-gray-200">
+<p class="text-text-muted/70 text-sm text-center md:text-left font-bold">
+                    © 2023 Focus Flow Inc. All rights reserved.
+                </p>
+<div class="flex gap-8">
+<a class="text-text-muted/70 text-sm font-bold hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-text-muted/70 text-sm font-bold hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
