@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Focus Flow - Calm Your Mind, Master Your Attention</title>
@@ -36,6 +36,39 @@
                         'soft-hover': '0 20px 50px -10px rgba(93, 130, 98, 0.4)',
                         'card': '0 8px 24px -6px rgba(93, 78, 70, 0.1)',
                         'button': '0 4px 0px rgba(216, 128, 128, 1)',
+                    },
+                    keyframes: {
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        },
+                        revealUp: {
+                            '0%': { transform: 'translateY(100vh)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        typewriter: {
+                            '0%': { width: '0' },
+                            '100%': { width: '100%' }
+                        },
+                        blink: {
+                            '50%': { borderColor: 'transparent' }
+                        },
+                        appear: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    animation: {
+                        'fade-in-down': 'fadeInDown 0.8s ease-out forwards',
+                        'float': 'float 4s ease-in-out infinite',
+                        'reveal-content': 'revealUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards 3.5s', 
+                        'write-focus': 'typewriter 1.5s steps(10) forwards 0.5s',
+                        'blink-cursor': 'blink 0.75s step-end infinite',
+                        'appear-flow': 'appear 0.8s ease-out forwards 2.2s',
                     }
                 },
             },
@@ -87,78 +120,112 @@
         }
         .custom-blob-shape {
              border-radius: 62% 38% 66% 34% / 45% 56% 44% 55%;
+        }.intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #8FB996;display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;animation: slideUpBlind 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards 3.5s;
         }
+        @keyframes slideUpBlind {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100%); }
+        }
+        .handwritten-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #FFF8E1;width: 0;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .handwritten-container {
+            font-family: 'Comfortaa', cursive;
+            font-size: 5rem;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        .word-flow {
+            opacity: 0;
+        }body {
+            animation: enableScroll 0s forwards 3.5s;
+        }
+        @keyframes enableScroll {
+            to { overflow-y: auto; }
+        }.site-content-wrapper {animation: contentSlideUp 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards 3.5s;
+             transform: translateY(100px); 
+             opacity: 0;
+        }
+        @keyframes contentSlideUp {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .intro-bg-container {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;}
     </style>
 </head>
-<body class="bg-background-light font-sans text-text-main antialiased overflow-x-hidden selection:bg-secondary-light selection:text-secondary-hover">
-<div class="relative flex min-h-screen w-full flex-col">
-<div class="sticky top-0 z-50 w-full h-fit transition-all duration-300" style="background-color: #8FB996;">
-    
-    <div class="pt-4 px-[2%] pb-4">
-        
-        <header class="w-full bg-background-light/95 backdrop-blur-sm px-3 py-3 lg:px-16 transition-all duration-300 rounded-3xl mx-auto shadow-sm border border-primary/10">
-            <div class="flex items-center justify-between mx-auto max-w-[1280px]">
-                <div class="flex items-center gap-3 text-text-main">
-                    <div class="bg-primary p-2 rounded-full text-white shadow-sm">
-                        <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1, 'wght' 600">cloud</span>
-                    </div>
-                    <h2 class="text-2xl font-display font-bold text-text-main tracking-wide">Focus Flow</h2>
-                </div>
-                
-                
-
-                <div class="flex items-center gap-4">
-                    <button class="hidden sm:flex cursor-pointer items-center justify-center rounded-full h-11 px-6 text-sm font-bold hover:bg-secondary-light text-text-main transition-colors">
-                        Log In
-                    </button>
-                    <button class="cursor-pointer items-center justify-center rounded-full h-11 px-7 bg-secondary hover:bg-secondary-hover text-white text-sm font-bold shadow-button hover:translate-y-0.5 active:translate-y-1 active:shadow-none transition-all duration-200">
-                        Get Started
-                    </button>
-                    <button class="md:hidden p-2 text-text-main bg-white rounded-full shadow-sm">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-    </div>
+<body class="bg-background-light font-sans text-text-main antialiased overflow-x-hidden selection:bg-secondary-light selection:text-secondary-hover overflow-y-hidden">
+<div class="intro-overlay">
+<div class="intro-bg-container" style="background-image: url('Bg_of_hero_page2.jpeg');"></div>
+<div class="handwritten-container">
+<span class="handwritten-text animate-write-focus animate-blink-cursor">Focus</span>
+<span class="word-flow animate-appear-flow">Flow</span>
 </div>
+</div>
+<div class="relative flex min-h-screen w-full flex-col site-content-wrapper">
+<header class="sticky top-0 z-50 w-full bg-background-light/95 backdrop-blur-sm px-10 py-8 lg:px-20 transition-all duration-300 rounded-full mx-auto max-w-[95%] mt-6 shadow-sm border border-primary/10 animate-fade-in-down">
+<div class="flex items-center justify-between mx-auto max-w-[1280px]">
+<div class="flex items-center gap-3 text-text-main group cursor-pointer">
+<div class="p-1 rounded-full group-hover:animate-float transition-all bg-white shadow-sm overflow-hidden border-2 border-primary/20">
+<img alt="Focus Flow Panda Logo" class="w-10 h-10 object-cover rounded-full" src="Images/logo.jpeg"/>
+</div>
+<h2 class="text-2xl font-display font-bold text-text-main tracking-wide">Focus Flow</h2>
+</div>
+
+<div class="flex items-center gap-4">
+
+<a href="Login_page.html">
+<button class="cursor-pointer items-center justify-center rounded-full h-11 px-7 bg-secondary hover:bg-secondary-hover text-white text-sm font-bold shadow-lg shadow-secondary/30 hover:shadow-xl hover:shadow-secondary/40 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300">
+                    Get Started
+                </button></a>
+<button class="md:hidden p-2 text-text-main bg-white rounded-full shadow-sm">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
 <main class="flex-1 flex flex-col items-center w-full">
-<section class="w-full relative bg-primary pt-16 pb-40 lg:pb-56 overflow-hidden">
+<section class="w-full relative pt-32 pb-48 lg:pb-72 overflow-hidden bg-cover bg-center bg-no-repeat md:bg-fixed" style="background-image: url('Images/desk.jpeg');">
+<div class="absolute inset-0 bg-primary-dark/40 z-0"></div>
 <div class="px-4 lg:px-40 flex justify-center relative z-10">
-<div class="max-w-[1280px] w-full flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-<div class="flex flex-col gap-8 lg:w-1/2 text-center lg:text-left">
-<div class="flex flex-col gap-6">
-<span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white text-primary-dark border-2 border-primary-light text-xs font-extrabold tracking-widest uppercase w-fit mx-auto lg:mx-0 shadow-sm">
+<div class="max-w-[1000px] w-full flex flex-col gap-10 items-center text-center">
+<div class="flex flex-col gap-8 items-center">
+<span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/95 backdrop-blur text-primary-dark border-2 border-primary-light text-xs font-extrabold tracking-widest uppercase w-fit shadow-sm scroll-animate opacity-0 translate-y-12 transition-all duration-1000 ease-out">
 <span class="material-symbols-outlined text-base">spa</span>
-                                Find <span style="color: #D88080;">your</span> happy place
-                            </span>
-<h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.15] text-white drop-shadow-sm">
-                                Calm your mind. <br/><span class="text-accent italic font-light relative">Focus better, Together<svg class="absolute -bottom-2 left-0 w-full h-3 text-secondary" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path></svg></span>
+                            Find your happy place
+                        </span>
+<h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-white drop-shadow-md scroll-animate opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-200">
+                            Soften your mind. <br/><span class="text-accent italic font-light relative">Find your flow.<svg class="absolute -bottom-2 left-0 w-full h-3 text-secondary" preserveAspectRatio="none" viewBox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path></svg></span>
 </h1>
-<p class="text-white/90 text-lg sm:text-xl font-semibold leading-relaxed max-w-xl mx-auto lg:mx-0">
-                               Sync your focus with a virtual partner and let AI handle the planning. Tackle your to-do list together, one micro-step at a time.
-                            </p>
-</div>
-<div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
-
-</div>
-<div class="flex items-center gap-6 justify-center lg:justify-start text-sm text-white/90 pt-4 font-bold">
-<div class="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-
-</div>
-<div class="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-
-</div>
-</div>
-</div>
-<div class="w-full lg:w-1/2 relative group px-8 lg:px-0">
-<div class="absolute -top-12 -right-12 w-64 h-64 bg-accent/20 rounded-full blur-3xl mix-blend-overlay animate-pulse"></div>
-<div class="absolute -bottom-8 -left-8 w-64 h-64 bg-secondary/30 rounded-full blur-3xl mix-blend-overlay"></div>
-<div class="relative w-full aspect-[4/3] rounded-[3rem] shadow-xl hover:shadow-2xl overflow-hidden border-[12px] border-white transform rotate-2 hover:rotate-0 transition-all duration-700 ease-out z-10">
-<div class="absolute inset-0 bg-primary mix-blend-overlay opacity-20 pointer-events-none z-20"></div>
-<div class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="Calm workspace with plants and soft lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1CSZ4nGg6BQ34dXqWKPYhkxcMhCqVS7n1Gcc-seXJaMINtKNEn_81-LbsH3jPgpNQV6X0nd3732lYz2_vOibB6TeHyjz5Uoitw7Yq6Eqrx_phgUkFYIhvTtXtrPLsjt2BwgSiYqj9rsbLRYa4qfSezXVygPK-SKWjiq14kVGcYDbpwVSig5WQpZTdkwWWEQPTX1FdiZ-nJSaoggJ5kk-LuJArq9LRqy3nilGKNZTRSMUB7GFiTix92ZD3keTmpmnkyhZgHbn3R4s');"></div>
-</div>
-
+<p class="text-xl md:text-2xl text-white font-semibold max-w-2xl leading-relaxed drop-shadow-sm scroll-animate opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-500">
+                            Create a fluffy, serene digital environment to float above distractions and drift effortlessly into your work.
+                        </p>
 </div>
 </div>
 </div>
@@ -172,7 +239,7 @@
 </section>
 <section class="w-full px-4 lg:px-40 py-24 bg-background-light relative">
 <div class="max-w-[1280px] w-full mx-auto relative z-10">
-<div class="flex flex-col gap-4 mb-20 text-center items-center">
+<div class="flex flex-col gap-4 mb-20 text-center items-center scroll-animate opacity-0 translate-y-12 transition-all duration-1000 ease-out">
 <span class="bg-secondary-light text-secondary px-4 py-1 rounded-full font-bold tracking-widest text-xs uppercase">Gentle Tools</span>
 <h2 class="text-3xl md:text-5xl font-display font-bold leading-tight text-text-main">
                         Designed for <span class="text-secondary decoration-wavy underline decoration-2 underline-offset-4">Tranquility</span>
@@ -181,40 +248,52 @@
                         Soft tools that guide you into deep focus like a gentle breeze, without the stress of rigid tracking.
                     </p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary scroll-animate opacity-0 translate-y-12 ease-out delay-0" style="transition-duration: 1000ms, 300ms, 300ms; transition-property: opacity, transform, box-shadow, border-color;">
 <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary-light rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
 <div class="size-20 rounded-full bg-primary-light flex items-center justify-center text-primary-dark shadow-inner z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
 <span class="material-symbols-outlined text-4xl">do_not_disturb_on</span>
 </div>
 <div class="flex flex-col gap-3 z-10">
-<h3 class="text-2xl font-display font-bold text-text-main">Mindful Blocking</h3>
-<p class="text-text-muted text-base leading-relaxed font-medium">
+<h3 class="text-xl font-display font-bold text-text-main">Mindful Blocking</h3>
+<p class="text-text-muted text-sm leading-relaxed font-medium">
                                 Gently silence digital noise. Create serene spaces by pausing notifications and blocking distracting sites.
                             </p>
 </div>
 </div>
-<div class="flex flex-col gap-6 rounded-[2.5rem] bg-secondary-light p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-secondary/20 hover:border-secondary">
-<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
-<div class="size-20 rounded-full bg-white flex items-center justify-center text-secondary shadow-sm z-10 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary scroll-animate opacity-0 translate-y-12 ease-out delay-100" style="transition-duration: 1000ms, 300ms, 300ms; transition-property: opacity, transform, box-shadow, border-color;">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-secondary-light/50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+<div class="size-20 rounded-full bg-secondary-light flex items-center justify-center text-secondary shadow-inner z-10 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
 <span class="material-symbols-outlined text-4xl">hourglass_bottom</span>
 </div>
 <div class="flex flex-col gap-3 z-10">
-<h3 class="text-2xl font-display font-bold text-text-main">Rhythmic Focus</h3>
-<p class="text-text-muted text-base leading-relaxed font-medium">
+<h3 class="text-xl font-display font-bold text-text-main">Rhythmic Focus</h3>
+<p class="text-text-muted text-sm leading-relaxed font-medium">
                                 Work in natural cycles. Our soft timers encourage breaks to refresh your mind and sustain energy.
                             </p>
 </div>
 </div>
-<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary">
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-primary-light/50 hover:border-primary scroll-animate opacity-0 translate-y-12 ease-out delay-200" style="transition-duration: 1000ms, 300ms, 300ms; transition-property: opacity, transform, box-shadow, border-color;">
 <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary-light rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
 <div class="size-20 rounded-full bg-primary-light flex items-center justify-center text-primary-dark shadow-inner z-10 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
 <span class="material-symbols-outlined text-4xl">query_stats</span>
 </div>
 <div class="flex flex-col gap-3 z-10">
-<h3 class="text-2xl font-display font-bold text-text-main">Insightful Clarity</h3>
-<p class="text-text-muted text-base leading-relaxed font-medium">
+<h3 class="text-xl font-display font-bold text-text-main">Insightful Clarity</h3>
+<p class="text-text-muted text-sm leading-relaxed font-medium">
                                 Understand your natural flow with calm, non-judgmental insights into your daily focus patterns.
+                            </p>
+</div>
+</div>
+<div class="flex flex-col gap-6 rounded-[2.5rem] bg-white p-8 shadow-card hover:shadow-soft-hover hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden border-2 border-secondary/10 hover:border-secondary scroll-animate opacity-0 translate-y-12 ease-out delay-300" style="transition-duration: 1000ms, 300ms, 300ms; transition-property: opacity, transform, box-shadow, border-color;">
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-secondary-light/50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+<div class="size-20 rounded-full bg-secondary-light flex items-center justify-center text-secondary-hover shadow-inner z-10 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl">self_improvement</span>
+</div>
+<div class="flex flex-col gap-3 z-10">
+<h3 class="text-xl font-display font-bold text-text-main">Guided Calm</h3>
+<p class="text-text-muted text-sm leading-relaxed font-medium">
+                                Short, integrated breathing exercises to help you reset and center yourself before your next task.
                             </p>
 </div>
 </div>
@@ -233,7 +312,7 @@
 </svg>
 </div>
 <div class="w-full px-4 lg:px-40 flex justify-center mb-16 relative z-10">
-<div class="max-w-[960px] w-full text-center">
+<div class="max-w-[960px] w-full text-center scroll-animate opacity-0 translate-y-12 transition-all duration-1000 ease-out">
 <span class="text-secondary font-extrabold tracking-widest text-xs uppercase mb-3 block">Community</span>
 <h2 class="text-3xl md:text-4xl font-display font-bold leading-tight text-text-main">
                         Join thousands floating in their flow
@@ -243,7 +322,7 @@
 <div class="w-full px-4 lg:px-40 flex justify-center relative z-10">
 <div class="max-w-[1280px] w-full">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative">
+<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative scroll-animate opacity-0 translate-y-12 ease-out delay-0" style="transition-duration: 1000ms, 300ms; transition-property: opacity, transform, border-color;">
 <div class="absolute -top-4 -right-4 text-8xl text-primary/10 font-serif leading-none">”</div>
 <div class="flex items-center gap-4 z-10">
 <div class="bg-center bg-no-repeat bg-cover rounded-full size-16 border-4 border-primary-light" data-alt="Portrait of Sarah J smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCERVYkg0s2tmhWtqpLTmJ_9OLRu8AfRrJvWhinuyNlKKVLYuMhbXjh-TrjPdijbxyXMi9_q7_UcYw3jMOhGH48CQVwVS7geUMLBKaFRvick8croV6mV03k6MBbMGWhYMDQfYue8er_I2s7tSs4QKbjhhlqOlVpVK3ZFtgBA4cg-yahifAv8I2JgQYeaewbhEYh_TdiSKTeRtZgYKY1ADb-wiaqerV700LXBr41Fhy5yklaomKaZZ1eKOpez-3q6e9CELLNNqlV9Mw");'>
@@ -264,7 +343,7 @@
                                 "Focus Flow completely changed how I manage my workday. It feels less like a tool and more like a sanctuary for my thoughts."
                             </p>
 </div>
-<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative mt-0 md:mt-8 lg:mt-0">
+<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative mt-0 md:mt-8 lg:mt-0 scroll-animate opacity-0 translate-y-12 ease-out delay-150" style="transition-duration: 1000ms, 300ms; transition-property: opacity, transform, border-color;">
 <div class="absolute -top-4 -right-4 text-8xl text-secondary/10 font-serif leading-none">”</div>
 <div class="flex items-center gap-4 z-10">
 <div class="bg-center bg-no-repeat bg-cover rounded-full size-16 border-4 border-secondary-light" data-alt="Portrait of Mark T in a suit" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDTxbjRI0CquxE9hL2ViyTi9gI-Yk9sTz4v0w22zb0yh-mfTCiC2RGwT7EQD7krhHEd0H8UxvXqYukx_mTBqMkgtXuK4ft2CqF9poCPbF0Co1n7i-MEVlEmlfNROS6PRXNwLF2XLQE_Ljvk7I9CjzinABxexOjmhI5PnoFToWqjpdeRQnnzt-J99kmiN_kGX_pHeXSHkpdxCKIbREhuSamiCMVUQsGfwSjRNrJVym7GAe6arR9JCpCXj_NHvuNfJXOuz2BbHHT9DB8");'>
@@ -285,7 +364,7 @@
                                 "The best app for deep work. Highly recommended for anyone struggling with digital noise. The interface itself is incredibly calming."
                             </p>
 </div>
-<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative">
+<div class="flex flex-col gap-5 rounded-[2rem] bg-white p-8 shadow-sm border-2 border-white hover:border-secondary/30 transition-colors relative scroll-animate opacity-0 translate-y-12 ease-out delay-300" style="transition-duration: 1000ms, 300ms; transition-property: opacity, transform, border-color;">
 <div class="absolute -top-4 -right-4 text-8xl text-primary/10 font-serif leading-none">”</div>
 <div class="flex items-center gap-4 z-10">
 <div class="bg-center bg-no-repeat bg-cover rounded-full size-16 border-4 border-primary-light" data-alt="Portrait of Elena R smiling outdoors" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD38DOFgaOtBvG8PZaZHhtlWeYhWdXx0RSAellw0JQ9oqEsRd5EUJgCiPUD_7BZREGM5ubYrVpcM6tOi-djQ0hdvVuWB5yzu57g0Jz5Y4ipxIV0OoqWTcoWOx6Yg6enWB1WcvWPhCUxuct9xKPj0ehnHye-etS6pwDrRB1PIJD5a-29_rh_46bxUju2d1euoA6wt_xXfPk4FyigkGsFrMUEYsFkDlMpZJ1Hff4P8whwuFslzXWeHk4Rt_2lga5GYbkl846-iiVyOkw");'>
@@ -322,7 +401,9 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 <div class="flex flex-col gap-6">
 <div class="flex items-center gap-2 text-text-main">
-<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">cloud</span>
+<div class="p-1 rounded-full bg-white shadow-sm overflow-hidden border border-primary/20 w-8 h-8 flex items-center justify-center">
+<img alt="Focus Flow Panda Logo" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvRvuz_UbpQhKV5gjul6QiqI7XKNv3kvRi2qgVrxJjyT1ueGZFG5XHiZmwVyOYXGJwskTS67ItnUxtcf6KHf8EKYnUE8dsTVKEd-O2KFy0HPKuvOt-9fZZQLSG0CPawiVMcD2QqbuiCeVD5h3h6oziOwp7suy7AeLKQahg5Zr6tKgIemopTzrBAcSAV5Qq6EFSE0WwU9vc9oBAssFYMcK9lCrdqHa4qtR7Hl7zgNjFQ6MCwgOKRgygLTte_IiVRUmbOPz3qiXj_E4"/>
+</div>
 <h2 class="text-xl font-display font-bold">Focus Flow</h2>
 </div>
 <p class="text-text-muted text-sm font-semibold leading-relaxed">
@@ -368,5 +449,25 @@
 </div>
 </footer>
 </div>
-
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-12');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        // Exclude footer links/elements that might have the class
+        const elements = document.querySelectorAll('main .scroll-animate');
+        elements.forEach(el => observer.observe(el));
+    });
+</script>
 </body></html>
